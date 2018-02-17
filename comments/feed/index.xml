@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments for 빈센트 프로젝트</title>
+	<atom:link href="/comments/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>신진 디자이너들의 육성 - 자립을 위한 사회적 플랫폼</description>
+	<lastBuildDate>Wed, 06 Apr 2016 05:26:05 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+	<item>
+		<title>Comment on Jacob by Peter</title>
+		<link>/jacob/#comment-171</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Sat, 26 Sep 2015 09:44:12 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test-copy-2/#comment-171</guid>
+		<description><![CDATA[Thank you for this great product!]]></description>
+		<content:encoded><![CDATA[<p>Thank you for this great product!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Lucas by Peter</title>
+		<link>/lucas/#comment-166</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Sat, 26 Sep 2015 09:43:56 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test/#comment-166</guid>
+		<description><![CDATA[Cool!]]></description>
+		<content:encoded><![CDATA[<p>Cool!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Benjamin by Peter</title>
+		<link>/benjamin/#comment-172</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2015 13:06:26 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test-copy-copy-2/#comment-172</guid>
+		<description><![CDATA[Simply the best!]]></description>
+		<content:encoded><![CDATA[<p>Simply the best!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Logan by Peter</title>
+		<link>/logan/#comment-168</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2015 13:06:03 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test-copy-copy/#comment-168</guid>
+		<description><![CDATA[Great!]]></description>
+		<content:encoded><![CDATA[<p>Great!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Connor by Peter</title>
+		<link>/connor/#comment-169</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2015 13:01:08 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test-copy-copy-copy/#comment-169</guid>
+		<description><![CDATA[One of the best Connors I&#039;ve ever bought! I swear!]]></description>
+		<content:encoded><![CDATA[<p>One of the best Connors I&#8217;ve ever bought! I swear!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Gabriel by Peter</title>
+		<link>/gabriel/#comment-173</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2015 13:00:23 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test-copy-copy-copy-2/#comment-173</guid>
+		<description><![CDATA[Supercool product!]]></description>
+		<content:encoded><![CDATA[<p>Supercool product!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Luke by Peter</title>
+		<link>/luke/#comment-167</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2015 12:59:55 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test-copy/#comment-167</guid>
+		<description><![CDATA[Good quality]]></description>
+		<content:encoded><![CDATA[<p>Good quality</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Noah by Peter</title>
+		<link>/noah/#comment-170</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2015 12:59:27 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/product/test-2/#comment-170</guid>
+		<description><![CDATA[I don&#039;t recommend this product]]></description>
+		<content:encoded><![CDATA[<p>I don&#8217;t recommend this product</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Joshua by Nice buyer</title>
+		<link>/joshua/#comment-164</link>
+		<dc:creator><![CDATA[Nice buyer]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2015 08:22:56 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/?post_type=product&#038;p=1169#comment-164</guid>
+		<description><![CDATA[Great!]]></description>
+		<content:encoded><![CDATA[<p>Great!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>Comment on Aaron by domadmin</title>
+		<link>/aaron/#comment-165</link>
+		<dc:creator><![CDATA[domadmin]]></dc:creator>
+		<pubDate>Fri, 18 Sep 2015 15:27:43 +0000</pubDate>
+		<guid isPermaLink="false">http://openmarco.com/demo/colors-creative-mona-lisa/?post_type=product&#038;p=1171#comment-165</guid>
+		<description><![CDATA[Good, but not awesome...]]></description>
+		<content:encoded><![CDATA[<p>Good, but not awesome&#8230;</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

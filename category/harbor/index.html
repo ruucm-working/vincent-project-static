@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>하버 &#8211; 빈센트 프로젝트</title>
+<link rel='dns-prefetch' href='//assets.juicer.io' />
+<link rel='dns-prefetch' href='//s.gravatar.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//googledrive.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="빈센트 프로젝트 &raquo; Feed" href="/feed/" />
+<link rel="alternate" type="application/rss+xml" title="빈센트 프로젝트 &raquo; Comments Feed" href="/comments/feed/" />
+<meta name="description" content="신진 디자이너들의 육성 - 자립을 위한 사회적 플랫폼 | Direct Bridge Between Creators and Real Product" />
+<link rel="alternate" type="application/rss+xml" title="빈센트 프로젝트 &raquo; 하버 Category Feed" href="/category/harbor/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"wpemoji":"http:\/\/vincentproject.net\/wp-includes\/js\/wp-emoji.js?ver=4.9.4","twemoji":"http:\/\/vincentproject.net\/wp-includes\/js\/twemoji.js?ver=4.9.4"}};
+			( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	/*
+	 * Create a canvas element for testing native browser support
+	 * of emoji.
+	 */
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Check if two sets of Emoji characters render the same.
+	 *
+	 * @param set1 array Set of Emoji characters.
+	 * @param set2 array Set of Emoji characters.
+	 * @returns {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detect if the browser supports rendering emoji or flag emoji. Flag emoji are a single glyph
+	 * made of two characters, so some browsers (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param type {String} Whether to test for support of "flag" or "emoji".
+	 * @return {Boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 55356, 56826, 55356, 56819 ],
+					[ 55356, 56826, 8203, 55356, 56819 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447 ],
+					[ 55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447 ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Emoji allows people of all gender levitate and so does WordPress.
+				 *
+				 * To test for support, try to render a new emoji (woman in business suit levitating),
+				 * then compare it to how it would look if the browser doesn't render it correctly
+				 * (person in business suit levitating + female sign).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[55357, 56692, 8205, 9792, 65039],
+					[55357, 56692, 8203, 9792, 65039]
+				);
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='juicerstyle-css'  href='//assets.juicer.io/embed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='/wp-content/themes/colors-creative/assets/css/bootstrap.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-extends-css'  href='/wp-content/themes/colors-creative/assets/css/bootstrap-extends.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-css'  href='/wp-content/themes/colors-creative/assets/css/theme.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='ms-main-css'  href='/wp-content/plugins/masterslider/public/assets/css/masterslider.main.css?ver=2.26.0' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-masterslider-css'  href='/wp-content/themes/colors-creative/assets/css/masterslider.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='ionicons-css'  href='/wp-content/themes/colors-creative/assets/css/ionicons.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='photoswipe-css'  href='/wp-content/themes/colors-creative/assets/css/photoswipe/photoswipe.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='blueimp-gallery-css'  href='/wp-content/plugins/blueimp-lightbox/css/blueimp-gallery.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='blueimp-gallery-indicator-css'  href='/wp-content/plugins/blueimp-lightbox/css/blueimp-gallery-indicator.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='blueimp-gallery-video-css'  href='/wp-content/plugins/blueimp-lightbox/css/blueimp-gallery-video.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpsl-styles-css'  href='/wp-content/plugins/wp-store-locator/css/styles.css?ver=2.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='child-theme-style-css'  href='/wp-content/themes/colors-creative-child-extended/style.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='jejumyeongjo_css-css'  href='//fonts.googleapis.com/earlyaccess/jejumyeongjo.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-demilight_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfnVVTFJoaHQ2R0xQNURCSmp0M1BrWVQ5SVFKN05uaTRabC1XeFRpUm51T2c/notokr-demilight.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-light_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfk5lRk1WVjhQWVRHRldCVEw0TU1qMHhvNEdfM1E0cjZ1Z2ZHRDFfcWRVSDA/notokr-light.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-regular_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfkljOGVJb3RMR200clRfUTVVdXlaRElPRTV3VGlNZVZ3ay1EYjdiZjJockk/notokr-regular.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-medium_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfmN1U19nTHpWVFd2NHA2dXJ4c0FvOEdVcF9mc3ZfcWNyZjRDZ2plMy12SzQ/notokr-medium.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-bold_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfnV0d3J5S21BSFdGUXctekQ1eHJoczF2OUcyTGZna3laMlg2MWR6cWoyV1E/notokr-bold.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='hanna_css-css'  href='//fonts.googleapis.com/earlyaccess/hanna.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='child-custom-css-css'  href='/wp-content/themes/colors-creative-child-extended/assets/css/style.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='ms-custom-css'  href='/wp-content/uploads/masterslider/custom.css?ver=1.1' type='text/css' media='all' />
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='//assets.juicer.io/embed-no-jquery.js?ver=4.9.4'></script>
+<script src="//cdn.jsdelivr.net/modernizr/2/modernizr.min.js"></script><script>window.Modernizr||document.write('<script src="http://vincentproject.net/wp-content/themes/colors-creative/assets/js/vendor/modernizr.min.js?ver=4.9.4"><\/script>')</script><link rel='https://api.w.org/' href='/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.4" />
+			<meta property="fb:pages" content="822021877830748" />
+			<script>var ms_grabbing_curosr='http://vincentproject.net/wp-content/plugins/masterslider/public/assets/css/common/grabbing.cur',ms_grab_curosr='http://vincentproject.net/wp-content/plugins/masterslider/public/assets/css/common/grab.cur';</script>
+<meta name="generator" content="MasterSlider 2.26.0 - Responsive Touch Image Slider" />
+	<style type="text/css">
+		div.wpcf7 .screen-reader-response {
+			display: none;
+		}
+		div.wpcf7 img.ajax-loader {
+			border: none;
+			vertical-align: middle;
+			margin-left: 4px;
+		}
+		div.wpcf7 .form-inline img.ajax-loader {
+			display: inline;
+		}
+		div.wpcf7 div.ajax-error {
+			display: none;
+		}
+		div.wpcf7 .wpcf7-display-none {
+			display: none;
+		}
+		div.wpcf7 .form-inline .form-group {
+			max-width: 250px;
+		}
+		div.wpcf7 .input-group-addon img {
+			height: 100%;
+			width: auto;
+			max-width: none !important;
+			border-radius: 5px;
+		}
+		div.wpcf7 .input-group-addon.input-group-has-image {
+			padding: 0;
+		}
+	</style>
+	<meta name="ismobile" content="false"/><meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://vincentproject.net/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="http://vincentproject.net/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]--><link rel="icon" href="/wp-content/uploads/2016/02/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2016/02/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="/wp-content/uploads/2016/02/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="http://vincentproject.net/wp-content/uploads/2016/02/cropped-favicon-270x270.png" />
+<style type="text/css">.navmenu-header-overlay{opacity:1}.navmenu-nav .nav-background-overlay{opacity:1}.navmenu-brand{height:50px;margin-top:-25px;line-height:50px}.btn-primary.btn-flat{border-color:transparent}.btn-primary.btn-flat:hover{border-color:transparent}.btn-primary.btn-flat:focus{border-color:transparent}.btn-primary.btn-3d{border-color:transparent;box-shadow:0 4px 0 }.btn-primary.btn-3d:hover{box-shadow:0 2px 0  }.btn-primary.btn-3d:focus{box-shadow:0 2px 0  }.btn-primary.btn-3d:active{box-shadow:0 1px 0 }.btn-primary.btn-3d.active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-xs:hover{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs:focus{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs:active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs.active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-sm{box-shadow:0 3px 0 }.btn-primary.btn-3d.btn-sm:hover{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-sm:focus{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-sm:active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-sm.active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-lg{box-shadow:0 6px 0 }.btn-primary.btn-3d.btn-lg:hover{box-shadow:0 3px 0 }.btn-primary.btn-3d.btn-lg:focus{box-shadow:0 3px 0 }.btn-primary.btn-3d.btn-lg:active{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-lg.active{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-xl{box-shadow:0 8px 0 }.btn-primary.btn-3d.btn-xl:hover{box-shadow:0 4px 0 }.btn-primary.btn-3d.btn-xl:focus{box-shadow:0 4px 0 }.btn-primary.btn-3d.btn-xl:active{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-xl.active{box-shadow:0 2px 0 }.btn-primary.btn-link{background:none;border-color:transparent}.btn-default.btn-flat{border-color:transparent}.btn-default.btn-flat:hover{border-color:transparent}.btn-default.btn-flat:focus{border-color:transparent}.btn-default.btn-3d{border-color:transparent;box-shadow:0 4px 0 }.btn-default.btn-3d:hover{box-shadow:0 2px 0  }.btn-default.btn-3d:focus{box-shadow:0 2px 0  }.btn-default.btn-3d:active{box-shadow:0 1px 0 }.btn-default.btn-3d.active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-xs:hover{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs:focus{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs:active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs.active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-sm{box-shadow:0 3px 0 }.btn-default.btn-3d.btn-sm:hover{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-sm:focus{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-sm:active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-sm.active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-lg{box-shadow:0 6px 0 }.btn-default.btn-3d.btn-lg:hover{box-shadow:0 3px 0 }.btn-default.btn-3d.btn-lg:focus{box-shadow:0 3px 0 }.btn-default.btn-3d.btn-lg:active{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-lg.active{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-xl{box-shadow:0 8px 0 }.btn-default.btn-3d.btn-xl:hover{box-shadow:0 4px 0 }.btn-default.btn-3d.btn-xl:focus{box-shadow:0 4px 0 }.btn-default.btn-3d.btn-xl:active{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-xl.active{box-shadow:0 2px 0 }.btn-default.btn-link{background:none;border-color:transparent}.pswp__bg{background-color:#ffffff}.pswp--zoomed-in .pswp__top-bar,.pswp--zoomed-in .pswp__caption{background-color:#ffffff}.pswp__button{color:#38aa8b}.pswp__button--arrow--left,.pswp__button--arrow--right{color:#404040}.pswp__counter{color:#404040}.pswp__share-modal .pswp__share-tooltip a{color:#d4be85;background-color:#38aa8b}.pswp__share-modal{background-color:#fc7753}.pswp__img--placeholder--blank{background-color:#ffffff}@media(min-width:992px){}@media(min-width:1320px){.navmenu-brand{height:50px;margin-top:-25px;line-height:50px}}</style><style type="text/css">@media(min-width:992px){}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/g/html5shiv,respond"></script>
+    <![endif]-->
+	<meta property="fb:pages" content="822021877830748" />
+</head>
+<body class="archive category category-harbor category-134 _masterslider _msp_version_2.26.0 wpb-js-composer js-comp-ver-4.9.2 vc_responsive" data-spy="scroll" data-target=".navmenu-nav" data-offset="80">
+
+
+
+<div class="splash" data-om-splash="400">
+    <svg class="splash-icon splash-icon-circles" width="44" height="44" viewbox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd" stroke-width="2">
+            <circle cx="22" cy="22" r="1"></circle>
+            <circle cx="22" cy="22" r="1"></circle>
+        </g>
+    </svg>
+</div>
+
+
+    
+
+
+<nav class="navmenu navmenu-horizontal navmenu-fixed navmenu-expand" role="navigation" id="navigation">
+
+    <div class="navmenu-header-overlay" data-classchange="background-light background-dark"
+         data-classchange-target=".navmenu-header"></div>
+
+            <div class="navmenu-nav">
+            <div class="nav-wrapper">
+                
+                <div class="nav-background nav-background-overlay" data-classchange="background-light background-dark"
+                     data-classchange-target=".navmenu-nav"></div>
+
+                <div class="container">
+                    <ul class="nav" role="menu"><li ><a href="/about-vincent/" class="menu-item menu-item-type-post_type menu-item-object-page">[빈센트 프로젝트에 대해서]</a></li><li ><a href="/blog/" class="menu-item menu-item-type-post_type menu-item-object-page">[가장 최근의 소식]</a></li><li ><a href="/logs/" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent">[생각들]</a></li><li ><a href="/1st-portfolio/" class="menu-item menu-item-type-post_type menu-item-object-page">[빈센트 프로그램 1기]</a></li><li ><a href="/please-contact/" class="menu-item menu-item-type-post_type menu-item-object-page">[연락]</a></li></ul>                </div>
+            </div>
+        </div>
+    
+    <div class="navmenu-header">
+        <div class="container">
+                            <a class="navmenu-toggle"
+                   data-toggle-class="in"
+                   data-target="#navigation"
+                   data-on-delay="10"
+                   data-on-class="pre-in"
+                   data-off-delay="400"
+                   data-off-class="out">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            
+            
+                            <a class="navmenu-brand" href="/">
+                                                                        <img class="logo default dark"
+                                 height="50"
+                                 src="/wp-content/uploads/2016/02/LOGO.png"
+                                 alt=""/>
+                                                                                                <img class="logo light"
+                                 height="50"
+                                 src="/wp-content/uploads/2016/02/LOGO_WHITE.png"
+                                 alt=""/>
+                                                            </a>
+                    </div>
+    </div>
+
+</nav>
+
+
+
+<div class="wrap" role="document">
+    
+
+
+    
+    <header class="entry-header">
+                                <div
+                class="section section-header section-inside" data-scroll-bg="#eaeaea" data-scroll-child-target="&gt;.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu">
+                                                
+                <div class="section-flex"
+                    >
+                    <div class="section-flex-middle">
+                        <div class="container">
+                            <div class="section-content">
+                                <div class="text-center"
+                                                                            data-scroll-trigger=".section"
+                                        data-scroll-animate="transform:translateY($1px);opacity"
+                                        data-0_100="0;1"
+                                        data-70_100="210;0"
+                                        data-100_100="300;0"
+                                    >
+
+                                    <h1 class="title entry-title">Category: 하버</h1>
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        </header>
+
+    
+<div class="section section-zero" data-scroll-bg="#eaeaea" data-scroll-child-target="&gt;.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu">
+    <div class="container">
+        <div class="section-content">
+
+            
+            <div class="grid hentry-grid" data-image-cover="">
+                                                                            <div class="clearfix hidden-xs"></div>
+                                        
+                    
+                    <div class="grid-item col-xs-12 col-sm-6 col-md-4 row-xs-12 row-sm-6 row-md-4">
+                        <div class="grid-cell grid-cell-full">
+                            <article class="grid-content post-3302 post type-post status-publish format-standard hentry category-harbor">
+                                
+                                
+<div class="caption">
+    <div class="caption-content">
+        <div class="background background-mobile hidden-md hidden-lg"></div>
+        <div class="background background-overlay hidden-xs hidden-sm"></div>
+        <div class="background background-rest animate hover-fade hidden-xs hidden-sm"></div>
+        <div class="background background-hover animate rest-fade hidden-xs hidden-sm"></div>
+        <div class="top">
+            <div class="entry-meta">
+                <time class="updated" datetime="2017-07-30T18:01:51+00:00">July 30, 2017</time>
+<span class="byline author vcard sr-only"><a href="/author/ruucm/" rel="author" class="fn">ruucm</a></span>
+in <a href="/category/harbor/">하버</a>            </div>
+
+            <h3 class="entry-title">
+                <a class="animate" href="/harbor-start/" title="">
+                    왜 한국 20대는 스티브 잡스, 노벨상 수상자가 될 수 없는가? (빈센트 끝 하버 시작 &#x1f6a9;)                </a>
+            </h3>
+        </div>
+        <div class="bottom">
+            <a href="/harbor-start/" title=""
+               class="btn btn-xs btn-primary btn-flat btn-read">
+                Read                <span class="arrow-right"></span>
+            </a>
+        </div>
+    </div>
+</div>                            </article>
+
+                        </div>
+                    </div>
+
+                            </div>
+
+            
+                            <nav class="post-nav">
+                    <ul class="pager">
+                                                    <li class="all"><a href="/logs/"><span class="icon ion-grid"></span></a></li>                                                                    </ul>
+                </nav>
+            
+        </div>
+    </div>
+</div></div>
+
+
+    
+
+<footer class="content-info" role="contentinfo">
+    
+            
+                <div class="content-info-section content-info-primary" data-scroll-bg="#eaeaea" data-scroll-child-target="&gt;.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu">
+            <div class="container">
+                <div
+                    class="content-info-content content-info-center">
+                    <div class="row"><div class="col-sm-12"><section class="widget social-icons-widget-5 widget_social-icons-widget"><h3 class="widgettitle">Follow us</h3><ul class="social-icons"><li><a target="_blank" href="https://www.instagram.com/vincent.project/"><span class="icon ion-social-instagram"></span></a></li></section></ul></div></div>                </div>
+            </div>
+        </div>
+
+                
+    </footer>
+
+
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+<div id="blueimp-gallery-fullscreen" class="blueimp-gallery" data-full-screen="true">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+	<div style="display:none">
+	</div>
+<script type='text/javascript' src='/wp-content/themes/colors-creative/assets/js/scripts.min.js?ver=1.4.6'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-indicator.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-fullscreen.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-video.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-vimeo.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-youtube.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/jquery.blueimp-gallery.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/vincentproject.net\/wp-content\/themes\/colors-creative\/assets\/img\/three-dots.svg","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.3.1'></script>
+<script type='text/javascript' src='/wp-content/plugins/bootstrap-for-contact-form-7/assets/scripts.min.js?ver=1.3.0'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2018Febaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201807'></script>
+<script type='text/javascript' src='/wp-content/themes/colors-creative-child-extended/assets/js/custom.js?ver=1.4.6'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.js?ver=4.9.4'></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Uncategorized &#8211; 빈센트 프로젝트</title>
+	<atom:link href="/category/uncategorized-en/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>신진 디자이너들의 육성 - 자립을 위한 사회적 플랫폼</description>
+	<lastBuildDate>Sat, 17 Feb 2018 08:17:42 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.4</generator>
+
+<image>
+	<url>/wp-content/uploads/2016/02/cropped-favicon-32x32.png</url>
+	<title>Uncategorized &#8211; 빈센트 프로젝트</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Pyton의 무서움 &#x1f631;</title>
+		<link>/harbor-01/</link>
+		<pubDate>Sun, 30 Jul 2017 17:57:39 +0000</pubDate>
+		<dc:creator><![CDATA[ruucm]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">/?p=3296</guid>
+		<description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet malesuada sapien. Nunc viverra elit neque, et scelerisque mi sodales pulvinar. Praesent nec felis non quam suscipit gravida. Aenean at sagittis mi. Pellentesque a lorem dignissim, porttitor risus at, congue enim. Cras ultrices lorem quis dapibus aliquet. Duis elementum commodo mi, a suscipit risus&#8230;]]></description>
+				<content:encoded><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet malesuada sapien. Nunc viverra elit neque, et scelerisque mi sodales pulvinar. Praesent nec felis non quam suscipit gravida. Aenean at sagittis mi. Pellentesque a lorem dignissim, porttitor risus at, congue enim. Cras ultrices lorem quis dapibus aliquet. Duis elementum commodo mi, a suscipit risus interdum a. Sed fringilla tincidunt posuere. Fusce at facilisis tellus. In hac habitasse platea dictumst. Integer auctor tincidunt tellus. Fusce tempor vel quam quis convallis.</p>
+<p>Nullam cursus, diam cursus ornare iaculis, ex lectus vestibulum nunc, porttitor pretium mi tellus et sem. Vestibulum quis ante metus. Vestibulum posuere eu nulla eget facilisis. Pellentesque id quam ut lectus dignissim rhoncus ac vel justo. Proin molestie at sapien vitae commodo. In hac habitasse platea dictumst. Pellentesque velit mi, pellentesque et lacus vitae, molestie porttitor tellus. Curabitur lacinia nisi vel accumsan pretium. Nunc convallis hendrerit leo, id aliquet mi tincidunt dignissim. Aliquam rhoncus lacinia nulla sit amet aliquet. Nullam luctus sollicitudin pharetra. Nulla at tellus placerat, tempor nunc at, rhoncus erat. Vivamus imperdiet laoreet nisi. Proin sollicitudin augue non risus mollis consequat. Aliquam libero ex, feugiat sed ullamcorper et, facilisis id risus. Nulla a efficitur tortor.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Pyton의 무서움 <img src="https://s.w.org/images/core/emoji/2.4/72x72/1f631.png" alt="😱" class="wp-smiley" style="height: 1em; max-height: 1em;" /> (부제 : 파이썬으로 모든 Youtube로 동영상 3초만에 다운로드 받기)</p>
+<p>&nbsp;</p>
+<p>파이썬이란</p>
+<p>&nbsp;</p>
+<p>파이썬으로 모든 Youtube로 동영상 3초만에 다운로드 받기</p>
+<p>&nbsp;</p>
+<p>파이썬으로 유튜브 동영상을 받는것을 막을수는 없다</p>
+<p>&nbsp;</p>
+<p>결론</p>
+<p>start python 🙂</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

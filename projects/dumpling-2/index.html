@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Dumpling &#8211; 빈센트 프로젝트</title>
+<link rel='dns-prefetch' href='//assets.juicer.io' />
+<link rel='dns-prefetch' href='//s.gravatar.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//googledrive.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="빈센트 프로젝트 &raquo; Feed" href="/feed/" />
+<link rel="alternate" type="application/rss+xml" title="빈센트 프로젝트 &raquo; Comments Feed" href="/comments/feed/" />
+<meta name="description" content="신진 디자이너들의 육성 - 자립을 위한 사회적 플랫폼 | Direct Bridge Between Creators and Real Product" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"wpemoji":"http:\/\/vincentproject.net\/wp-includes\/js\/wp-emoji.js?ver=4.9.4","twemoji":"http:\/\/vincentproject.net\/wp-includes\/js\/twemoji.js?ver=4.9.4"}};
+			( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	/*
+	 * Create a canvas element for testing native browser support
+	 * of emoji.
+	 */
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Check if two sets of Emoji characters render the same.
+	 *
+	 * @param set1 array Set of Emoji characters.
+	 * @param set2 array Set of Emoji characters.
+	 * @returns {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detect if the browser supports rendering emoji or flag emoji. Flag emoji are a single glyph
+	 * made of two characters, so some browsers (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param type {String} Whether to test for support of "flag" or "emoji".
+	 * @return {Boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 55356, 56826, 55356, 56819 ],
+					[ 55356, 56826, 8203, 55356, 56819 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447 ],
+					[ 55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447 ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * Emoji allows people of all gender levitate and so does WordPress.
+				 *
+				 * To test for support, try to render a new emoji (woman in business suit levitating),
+				 * then compare it to how it would look if the browser doesn't render it correctly
+				 * (person in business suit levitating + female sign).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[55357, 56692, 8205, 9792, 65039],
+					[55357, 56692, 8203, 9792, 65039]
+				);
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='juicerstyle-css'  href='//assets.juicer.io/embed.css?ver=4.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='/wp-content/themes/colors-creative/assets/css/bootstrap.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-extends-css'  href='/wp-content/themes/colors-creative/assets/css/bootstrap-extends.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-css'  href='/wp-content/themes/colors-creative/assets/css/theme.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'  href='/wp-content/themes/colors-creative/assets/css/visual-composer/css/js_composer.min.css?ver=4.9.2' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-visual-composer-css'  href='/wp-content/themes/colors-creative/assets/css/visual-composer.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='ms-main-css'  href='/wp-content/plugins/masterslider/public/assets/css/masterslider.main.css?ver=2.26.0' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-masterslider-css'  href='/wp-content/themes/colors-creative/assets/css/masterslider.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='ionicons-css'  href='/wp-content/themes/colors-creative/assets/css/ionicons.min.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='photoswipe-css'  href='/wp-content/themes/colors-creative/assets/css/photoswipe/photoswipe.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='blueimp-gallery-css'  href='/wp-content/plugins/blueimp-lightbox/css/blueimp-gallery.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='blueimp-gallery-indicator-css'  href='/wp-content/plugins/blueimp-lightbox/css/blueimp-gallery-indicator.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='blueimp-gallery-video-css'  href='/wp-content/plugins/blueimp-lightbox/css/blueimp-gallery-video.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wpsl-styles-css'  href='/wp-content/plugins/wp-store-locator/css/styles.css?ver=2.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='child-theme-style-css'  href='/wp-content/themes/colors-creative-child-extended/style.css?ver=1' type='text/css' media='all' />
+<link rel='stylesheet' id='jejumyeongjo_css-css'  href='//fonts.googleapis.com/earlyaccess/jejumyeongjo.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-demilight_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfnVVTFJoaHQ2R0xQNURCSmp0M1BrWVQ5SVFKN05uaTRabC1XeFRpUm51T2c/notokr-demilight.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-light_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfk5lRk1WVjhQWVRHRldCVEw0TU1qMHhvNEdfM1E0cjZ1Z2ZHRDFfcWRVSDA/notokr-light.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-regular_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfkljOGVJb3RMR200clRfUTVVdXlaRElPRTV3VGlNZVZ3ay1EYjdiZjJockk/notokr-regular.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-medium_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfmN1U19nTHpWVFd2NHA2dXJ4c0FvOEdVcF9mc3ZfcWNyZjRDZ2plMy12SzQ/notokr-medium.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='notokr-bold_css-css'  href='//googledrive.com/host/0BxmAw3HA4YGCfnV0d3J5S21BSFdGUXctekQ1eHJoczF2OUcyTGZna3laMlg2MWR6cWoyV1E/notokr-bold.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='hanna_css-css'  href='//fonts.googleapis.com/earlyaccess/hanna.css?ver=4.9.4' type='text/css' media='' />
+<link rel='stylesheet' id='child-custom-css-css'  href='/wp-content/themes/colors-creative-child-extended/assets/css/style.css?ver=1.4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='ms-custom-css'  href='/wp-content/uploads/masterslider/custom.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='sharedaddy-css'  href='/wp-content/plugins/jetpack/modules/sharedaddy/sharing.css?ver=3.9.7' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' type='text/css' media='all' />
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+<script type='text/javascript' src='//assets.juicer.io/embed-no-jquery.js?ver=4.9.4'></script>
+<script src="//cdn.jsdelivr.net/modernizr/2/modernizr.min.js"></script><script>window.Modernizr||document.write('<script src="http://vincentproject.net/wp-content/themes/colors-creative/assets/js/vendor/modernizr.min.js?ver=4.9.4"><\/script>')</script><link rel='https://api.w.org/' href='/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Tree Lamp' href='/projects/tree-lamp/' />
+<link rel='next' title='Atelier MODEN Pallet Project' href='/projects/atelier-moden-pallet-project-2/' />
+<meta name="generator" content="WordPress 4.9.4" />
+<link rel="canonical" href="/projects/dumpling-2/" />
+<link rel='shortlink' href='/?p=2875' />
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2Fprojects%2Fdumpling-2%2F" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2Fprojects%2Fdumpling-2%2F&#038;format=xml" />
+			<meta property="fb:pages" content="822021877830748" />
+			<script>var ms_grabbing_curosr='http://vincentproject.net/wp-content/plugins/masterslider/public/assets/css/common/grabbing.cur',ms_grab_curosr='http://vincentproject.net/wp-content/plugins/masterslider/public/assets/css/common/grab.cur';</script>
+<meta name="generator" content="MasterSlider 2.26.0 - Responsive Touch Image Slider" />
+	<style type="text/css">
+		div.wpcf7 .screen-reader-response {
+			display: none;
+		}
+		div.wpcf7 img.ajax-loader {
+			border: none;
+			vertical-align: middle;
+			margin-left: 4px;
+		}
+		div.wpcf7 .form-inline img.ajax-loader {
+			display: inline;
+		}
+		div.wpcf7 div.ajax-error {
+			display: none;
+		}
+		div.wpcf7 .wpcf7-display-none {
+			display: none;
+		}
+		div.wpcf7 .form-inline .form-group {
+			max-width: 250px;
+		}
+		div.wpcf7 .input-group-addon img {
+			height: 100%;
+			width: auto;
+			max-width: none !important;
+			border-radius: 5px;
+		}
+		div.wpcf7 .input-group-addon.input-group-has-image {
+			padding: 0;
+		}
+	</style>
+	<meta name="ismobile" content="false"/><meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://vincentproject.net/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="http://vincentproject.net/wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]-->
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Dumpling" />
+<meta property="og:url" content="http://vincentproject.net/projects/dumpling-2/" />
+<meta property="og:description" content="It is a product composed of the lounge chair inspired by dumpling dough and separate armrests and a side table. From 135$" />
+<meta property="article:published_time" content="2016-03-29T22:22:51+00:00" />
+<meta property="article:modified_time" content="2016-03-29T23:42:14+00:00" />
+<meta property="og:site_name" content="빈센트 프로젝트" />
+<meta property="og:image" content="http://vincentproject.net/wp-content/uploads/2016/03/KakaoTalk_20160321_105605150-1412x1412.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="1200" />
+<meta property="og:locale" content="en_US" />
+<link rel="icon" href="/wp-content/uploads/2016/02/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/2016/02/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="/wp-content/uploads/2016/02/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="http://vincentproject.net/wp-content/uploads/2016/02/cropped-favicon-270x270.png" />
+<style type="text/css">body{background:#ffffff}.navmenu-header-overlay{opacity:1}.navmenu-nav .nav-background-overlay{opacity:1}.navmenu-brand{height:50px;margin-top:-25px;line-height:50px}.btn-primary.btn-flat{border-color:transparent}.btn-primary.btn-flat:hover{border-color:transparent}.btn-primary.btn-flat:focus{border-color:transparent}.btn-primary.btn-3d{border-color:transparent;box-shadow:0 4px 0 }.btn-primary.btn-3d:hover{box-shadow:0 2px 0  }.btn-primary.btn-3d:focus{box-shadow:0 2px 0  }.btn-primary.btn-3d:active{box-shadow:0 1px 0 }.btn-primary.btn-3d.active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-xs:hover{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs:focus{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs:active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-xs.active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-sm{box-shadow:0 3px 0 }.btn-primary.btn-3d.btn-sm:hover{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-sm:focus{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-sm:active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-sm.active{box-shadow:0 1px 0 }.btn-primary.btn-3d.btn-lg{box-shadow:0 6px 0 }.btn-primary.btn-3d.btn-lg:hover{box-shadow:0 3px 0 }.btn-primary.btn-3d.btn-lg:focus{box-shadow:0 3px 0 }.btn-primary.btn-3d.btn-lg:active{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-lg.active{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-xl{box-shadow:0 8px 0 }.btn-primary.btn-3d.btn-xl:hover{box-shadow:0 4px 0 }.btn-primary.btn-3d.btn-xl:focus{box-shadow:0 4px 0 }.btn-primary.btn-3d.btn-xl:active{box-shadow:0 2px 0 }.btn-primary.btn-3d.btn-xl.active{box-shadow:0 2px 0 }.btn-primary.btn-link{background:none;border-color:transparent}.btn-default.btn-flat{border-color:transparent}.btn-default.btn-flat:hover{border-color:transparent}.btn-default.btn-flat:focus{border-color:transparent}.btn-default.btn-3d{border-color:transparent;box-shadow:0 4px 0 }.btn-default.btn-3d:hover{box-shadow:0 2px 0  }.btn-default.btn-3d:focus{box-shadow:0 2px 0  }.btn-default.btn-3d:active{box-shadow:0 1px 0 }.btn-default.btn-3d.active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-xs:hover{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs:focus{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs:active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-xs.active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-sm{box-shadow:0 3px 0 }.btn-default.btn-3d.btn-sm:hover{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-sm:focus{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-sm:active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-sm.active{box-shadow:0 1px 0 }.btn-default.btn-3d.btn-lg{box-shadow:0 6px 0 }.btn-default.btn-3d.btn-lg:hover{box-shadow:0 3px 0 }.btn-default.btn-3d.btn-lg:focus{box-shadow:0 3px 0 }.btn-default.btn-3d.btn-lg:active{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-lg.active{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-xl{box-shadow:0 8px 0 }.btn-default.btn-3d.btn-xl:hover{box-shadow:0 4px 0 }.btn-default.btn-3d.btn-xl:focus{box-shadow:0 4px 0 }.btn-default.btn-3d.btn-xl:active{box-shadow:0 2px 0 }.btn-default.btn-3d.btn-xl.active{box-shadow:0 2px 0 }.btn-default.btn-link{background:none;border-color:transparent}.section-header .section-background-main{background-color:#ffffff}.section-header .section-background-image{background-size:contain;background-image:url('/wp-content/uploads/2016/03/1-1-e1460019430314.jpg')}.pswp__bg{background-color:#ffffff}.pswp--zoomed-in .pswp__top-bar,.pswp--zoomed-in .pswp__caption{background-color:#ffffff}.pswp__button{color:#38aa8b}.pswp__button--arrow--left,.pswp__button--arrow--right{color:#404040}.pswp__counter{color:#404040}.pswp__share-modal .pswp__share-tooltip a{color:#d4be85;background-color:#38aa8b}.pswp__share-modal{background-color:#fc7753}.pswp__img--placeholder--blank{background-color:#ffffff}@media(min-width:992px){}@media(min-width:1320px){.navmenu-brand{height:50px;margin-top:-25px;line-height:50px}}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_row_32aa39cc.behavior-static .section-background-main{background-color:#ffffff}.vc_row_20fa1359.behavior-static .section-background-main{background-color:#ffffff}.vc_row_4a4d34b1.behavior-static .section-background-main{background-color:#ffffff}.vc_row_7f7a13f5.behavior-static .section-background-main{background-color:#ffffff}.om_gallery_0887b272 .grid{margin:-10px}.om_gallery_0887b272 .grid .grid-cell{margin:10px}.om_gallery_0887b272 .grid .grid-cell-full{margin:0;top:10px;bottom:10px;left:10px;right:10px}.om_gallery_0887b272 .grid{margin:-10px}.om_gallery_0887b272 .grid .grid-cell{margin:10px}.om_gallery_0887b272 .grid .grid-cell-full{margin:0;top:10px;bottom:10px;left:10px;right:10px}.om_gallery_0887b272 .grid{margin:-10px}.om_gallery_0887b272 .grid .grid-cell{margin:10px}.om_gallery_0887b272 .grid .grid-cell-full{margin:0;top:10px;bottom:10px;left:10px;right:10px}.om_gallery_0887b272 .grid{margin:-10px}.om_gallery_0887b272 .grid .grid-cell{margin:10px}.om_gallery_0887b272 .grid .grid-cell-full{margin:0;top:10px;bottom:10px;left:10px;right:10px}.om_gallery_aebab4bc .grid{margin:-25px}.om_gallery_aebab4bc .grid .grid-cell{margin:25px}.om_gallery_aebab4bc .grid .grid-cell-full{margin:0;top:25px;bottom:25px;left:25px;right:25px}.om_gallery_250419a6 .grid{margin:-8px}.om_gallery_250419a6 .grid .grid-cell{margin:8px}.om_gallery_250419a6 .grid .grid-cell-full{margin:0;top:8px;bottom:8px;left:8px;right:8px}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/g/html5shiv,respond"></script>
+    <![endif]-->
+	<meta property="fb:pages" content="822021877830748" />
+</head>
+<body class="project-template-default single single-project postid-2875 background-light _masterslider _msp_version_2.26.0 wpb-js-composer js-comp-ver-4.9.2 vc_responsive" data-spy="scroll" data-target=".navmenu-nav" data-offset="80">
+
+
+
+<div class="splash" data-om-splash="400">
+    <svg class="splash-icon splash-icon-circles" width="44" height="44" viewbox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" fill-rule="evenodd" stroke-width="2">
+            <circle cx="22" cy="22" r="1"></circle>
+            <circle cx="22" cy="22" r="1"></circle>
+        </g>
+    </svg>
+</div>
+
+
+    
+
+
+<nav class="navmenu navmenu-horizontal navmenu-fixed navmenu-expand" role="navigation" id="navigation">
+
+    <div class="navmenu-header-overlay" data-classchange="background-light background-dark"
+         data-classchange-target=".navmenu-header"></div>
+
+            <div class="navmenu-nav">
+            <div class="nav-wrapper">
+                
+                <div class="nav-background nav-background-overlay" data-classchange="background-light background-dark"
+                     data-classchange-target=".navmenu-nav"></div>
+
+                <div class="container">
+                    <ul class="nav" role="menu"><li ><a href="/about-vincent/" class="menu-item menu-item-type-post_type menu-item-object-page">[빈센트 프로젝트에 대해서]</a></li><li ><a href="/blog/" class="menu-item menu-item-type-post_type menu-item-object-page">[가장 최근의 소식]</a></li><li ><a href="/logs/" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent">[생각들]</a></li><li ><a href="/1st-portfolio/" class="menu-item menu-item-type-post_type menu-item-object-page">[빈센트 프로그램 1기]</a></li><li ><a href="/please-contact/" class="menu-item menu-item-type-post_type menu-item-object-page">[연락]</a></li></ul>                </div>
+            </div>
+        </div>
+    
+    <div class="navmenu-header">
+        <div class="container">
+                            <a class="navmenu-toggle"
+                   data-toggle-class="in"
+                   data-target="#navigation"
+                   data-on-delay="10"
+                   data-on-class="pre-in"
+                   data-off-delay="400"
+                   data-off-class="out">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            
+            
+                            <a class="navmenu-brand" href="/">
+                                                                        <img class="logo default dark"
+                                 height="50"
+                                 src="/wp-content/uploads/2016/02/LOGO.png"
+                                 alt=""/>
+                                                                                                <img class="logo light"
+                                 height="50"
+                                 src="/wp-content/uploads/2016/02/LOGO_WHITE.png"
+                                 alt=""/>
+                                                            </a>
+                    </div>
+    </div>
+
+</nav>
+
+
+
+<div class="wrap" role="document">
+    
+        <article class="post-2875 project type-project status-publish has-post-thumbnail hentry project_category-furniture-2">
+        
+    
+    <header class="entry-header">
+                                <div
+                class="section section-header section-inside background-light" data-scroll-bg="#ffffff" data-scroll-child-target="&gt;.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu" data-scroll-alpha="[0,1,1]">
+                                    <div class="section-background section-background-main"></div>
+                                                    <div class="section-background section-background-image"
+                                                    data-scroll-trigger=".section"
+                            data-scroll-animate="transform:translate3d(0,$1%,0)"
+                            data-0_100="0"
+                            data-100_100="40"
+                        ></div>
+                                
+                <div class="section-flex"
+                    data-vhmin="100" data-vhmin-offset=".navmenu">
+                    <div class="section-flex-middle">
+                        <div class="container">
+                            <div class="section-content">
+                                <div class="text-left"
+                                                                            data-scroll-trigger=".section"
+                                        data-scroll-animate="transform:translateY($1px);opacity"
+                                        data-0_100="0;1"
+                                        data-70_100="210;0"
+                                        data-100_100="300;0"
+                                    >
+
+                                    
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        </header>
+
+    
+        <div class="entry-content">
+                            <div class="section section-single section-inside vc_row_32aa39cc behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid vc-content-middle"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="500" height="180" src="/wp-content/uploads/2016/03/3-lines-e1460019177969.jpg" class="vc_single_image-img attachment-full" alt="" /></div>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element">
+		<div class="wpb_wrapper">
+			<p>It is a product composed of the lounge chair inspired by dumpling dough and separate armrests and a side table. It is made by using waste palettes treated by harmless heating (HT) to human body and birch plywood.</p>
+
+		</div>
+	</div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside  behavior-static" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside vc_row_20fa1359 behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid vc-content-bottom"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_right-to-left">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<a data-photoswipe-group="group-1" data-item="http://vincentproject.net/wp-content/uploads/2016/03/2-1-e1460018346251.jpg" data-size="500x750" data-title="2" rel="prettyPhoto[rel-2875-434169657]" href="/wp-content/uploads/2016/03/2-1-683x1024.jpg" target="_self" class="vc_single_image-wrapper   vc_box_border_grey" data-gallery><img width="500" height="750" src="/wp-content/uploads/2016/03/2-1-e1460018346251.jpg" class="vc_single_image-img attachment-full" alt="" /></a>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element">
+		<div class="wpb_wrapper">
+			<p class="text-justify">People usually recall rough, dirty and unfinished image when thinking about‘up-cycle&#8217;.</p>
+<p>We designed it while having trying to minimize the negative images in mind.</p>
+<p>People cannot recognize that the product was made by used palettes, having a glance. But, if people look closely at the product having interest in it, they can discover tiny marks of waste woods which were not seen by a glance before.</p>
+
+		</div>
+	</div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside  behavior-static" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside vc_row_4a4d34b1 behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="om_gallery_0887b272">
+    <div class="grid grid-gallery" data-om-grid="" data-image-cover="" data-om-photoswipe="">
+        <div class="grid-sizer clearfix col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/3-2-1-e1460018639681.jpg" data-size="1000x1000" data-title="3-2">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/3-2-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/3-2-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/3-2-1-1024x1024.jpg" alt="3-2"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-24 row-sm-12 row-md-12 row-lg-12">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/3-1-1-e1460018634847.jpg" data-size="1000x1500" data-title="3-1">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/3-1-1-1024x1536.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/3-1-1-1412x2118.jpg 1412w" src="/wp-content/uploads/2016/03/3-1-1-1024x1536.jpg" alt="3-1"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/3-3-1-e1460018626738.jpg" data-size="1000x1000" data-title="3-3">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/3-3-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/3-3-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/3-3-1-1024x1024.jpg" alt="3-3"/>                                            </a>
+
+                                    </div>
+            </article>
+            </div>
+</div><div class="vc_empty_space"  style="height: 60px" ><span class="vc_empty_space_inner"></span></div>
+
+	<div class="wpb_text_column wpb_content_element">
+		<div class="wpb_wrapper">
+			<p>Since white-colored wide and round sides and corners designed by a rounding technique give users soft and leisurely images, it can naturally harmonize with existing objects if put anywhere.</p>
+
+		</div>
+	</div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside  behavior-static" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside vc_row_4a4d34b1 behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="1000" height="737" src="/wp-content/uploads/2016/03/4-2-e1460019179349.jpg" class="vc_single_image-img attachment-full" alt="" /></div>
+		</figure>
+	</div>
+<div class="vc_empty_space"  style="height: 28px" ><span class="vc_empty_space_inner"></span></div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid vc_row-o-content-middle vc_row-flex vc-content-middle"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element">
+		<div class="wpb_wrapper">
+			<p class="text-justify">If you want to buy a lounge chair but hesitate about willingly choosing a product having strong features, the product is good for someone who wants to keep existing atmosphere, not dramatically changing one.</p>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_right">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="300" height="108" src="/wp-content/uploads/2016/03/3-lines-300x108.jpg" class="vc_single_image-img attachment-medium" alt="" srcset="/wp-content/uploads/2016/03/3-lines-300x108.jpg 300w, /wp-content/uploads/2016/03/3-lines-512x184.jpg 512w, /wp-content/uploads/2016/03/3-lines-e1460019177969.jpg 500w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+		</figure>
+	</div>
+</div></div></div></div></div></div></div></div></div></div></div><div class="section section-single section-inside  behavior-static" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside vc_row_4a4d34b1 behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="om_gallery_0887b272">
+    <div class="grid grid-gallery" data-om-grid="" data-image-cover="" data-om-photoswipe="">
+        <div class="grid-sizer clearfix col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-24 row-sm-12 row-md-12 row-lg-12">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/5-1-1-e1460019174156.jpg" data-size="1000x1979" data-title="5-1">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/5-1-1-1024x2027.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/5-1-1-1412x2794.jpg 1412w" src="/wp-content/uploads/2016/03/5-1-1-1024x2027.jpg" alt="5-1"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/5-2-1-e1460019172516.jpg" data-size="1000x1000" data-title="5-2">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/5-2-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/5-2-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/5-2-1-1024x1024.jpg" alt="5-2"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/5-3-1-e1460019171238.jpg" data-size="1000x1000" data-title="5-3">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/5-3-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/5-3-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/5-3-1-1024x1024.jpg" alt="5-3"/>                                            </a>
+
+                                    </div>
+            </article>
+            </div>
+</div><div class="vc_empty_space"  style="height: 60px" ><span class="vc_empty_space_inner"></span></div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid vc_row-o-content-middle vc_row-flex vc-content-middle"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_left">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="300" height="83" src="/wp-content/uploads/2016/03/2-lines-300x83.jpg" class="vc_single_image-img attachment-medium" alt="" srcset="/wp-content/uploads/2016/03/2-lines-300x83.jpg 300w, /wp-content/uploads/2016/03/2-lines-768x213.jpg 768w, /wp-content/uploads/2016/03/2-lines-1024x284.jpg 1024w, /wp-content/uploads/2016/03/2-lines-512x142.jpg 512w, /wp-content/uploads/2016/03/2-lines-1412x392.jpg 1412w, /wp-content/uploads/2016/03/2-lines-e1460019206142.jpg 500w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="968" height="131" src="/wp-content/uploads/2016/03/chair.jpg" class="vc_single_image-img attachment-full" alt="" srcset="/wp-content/uploads/2016/03/chair.jpg 968w, /wp-content/uploads/2016/03/chair-300x41.jpg 300w, /wp-content/uploads/2016/03/chair-768x104.jpg 768w, /wp-content/uploads/2016/03/chair-512x69.jpg 512w" sizes="(max-width: 968px) 100vw, 968px" /></div>
+		</figure>
+	</div>
+</div></div></div></div></div></div></div></div></div></div></div><div class="section section-single section-inside  behavior-static" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside vc_row_4a4d34b1 behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="om_gallery_0887b272">
+    <div class="grid grid-gallery" data-om-grid="" data-image-cover="" data-om-photoswipe="">
+        <div class="grid-sizer clearfix col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/6-2-1-e1460019163762.jpg" data-size="1000x1000" data-title="6-2">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/6-2-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/6-2-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/6-2-1-1024x1024.jpg" alt="6-2"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-24 row-sm-12 row-md-12 row-lg-12">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/6-1-1-e1460019161212.jpg" data-size="1000x2001" data-title="6-1">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/6-1-1-1024x2049.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/6-1-1-e1460019161212.jpg 1000w" src="/wp-content/uploads/2016/03/6-1-1-1024x2049.jpg" alt="6-1"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/6-3-1-e1460019160839.jpg" data-size="1000x1000" data-title="6-3">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/6-3-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/6-3-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/6-3-1-1024x1024.jpg" alt="6-3"/>                                            </a>
+
+                                    </div>
+            </article>
+            </div>
+</div><div class="vc_empty_space"  style="height: 60px" ><span class="vc_empty_space_inner"></span></div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_left">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="300" height="83" src="/wp-content/uploads/2016/03/2-lines-300x83.jpg" class="vc_single_image-img attachment-medium" alt="" srcset="/wp-content/uploads/2016/03/2-lines-300x83.jpg 300w, /wp-content/uploads/2016/03/2-lines-768x213.jpg 768w, /wp-content/uploads/2016/03/2-lines-1024x284.jpg 1024w, /wp-content/uploads/2016/03/2-lines-512x142.jpg 512w, /wp-content/uploads/2016/03/2-lines-1412x392.jpg 1412w, /wp-content/uploads/2016/03/2-lines-e1460019206142.jpg 500w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="968" height="131" src="/wp-content/uploads/2016/03/arm.jpg" class="vc_single_image-img attachment-full" alt="" srcset="/wp-content/uploads/2016/03/arm.jpg 968w, /wp-content/uploads/2016/03/arm-300x41.jpg 300w, /wp-content/uploads/2016/03/arm-768x104.jpg 768w, /wp-content/uploads/2016/03/arm-512x69.jpg 512w" sizes="(max-width: 968px) 100vw, 968px" /></div>
+		</figure>
+	</div>
+</div></div></div></div></div></div></div></div></div></div></div><div class="section section-single section-inside  behavior-static" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside vc_row_4a4d34b1 behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="om_gallery_0887b272">
+    <div class="grid grid-gallery" data-om-grid="" data-image-cover="" data-om-photoswipe="">
+        <div class="grid-sizer clearfix col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-24 row-sm-12 row-md-12 row-lg-12">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/7-1-1-e1460019157927.jpg" data-size="1000x1999" data-title="7-1">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/7-1-1-1024x2047.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/7-1-1-1412x2823.jpg 1412w" src="/wp-content/uploads/2016/03/7-1-1-1024x2047.jpg" alt="7-1"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/7-2-1-e1460019156382.jpg" data-size="1000x1000" data-title="7-2">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/7-2-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/7-2-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/7-2-1-1024x1024.jpg" alt="7-2"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/7-3-1-e1460019154558.jpg" data-size="1000x1000" data-title="7-3">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/7-3-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/7-3-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/7-3-1-1024x1024.jpg" alt="7-3"/>                                            </a>
+
+                                    </div>
+            </article>
+            </div>
+</div><div class="vc_empty_space"  style="height: 60px" ><span class="vc_empty_space_inner"></span></div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_left">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="300" height="83" src="/wp-content/uploads/2016/03/2-lines-300x83.jpg" class="vc_single_image-img attachment-medium" alt="" srcset="/wp-content/uploads/2016/03/2-lines-300x83.jpg 300w, /wp-content/uploads/2016/03/2-lines-768x213.jpg 768w, /wp-content/uploads/2016/03/2-lines-1024x284.jpg 1024w, /wp-content/uploads/2016/03/2-lines-512x142.jpg 512w, /wp-content/uploads/2016/03/2-lines-1412x392.jpg 1412w, /wp-content/uploads/2016/03/2-lines-e1460019206142.jpg 500w" sizes="(max-width: 300px) 100vw, 300px" /></div>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+	<div class="wpb_single_image wpb_content_element vc_align_center">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="968" height="131" src="/wp-content/uploads/2016/03/table.jpg" class="vc_single_image-img attachment-full" alt="" srcset="/wp-content/uploads/2016/03/table.jpg 968w, /wp-content/uploads/2016/03/table-300x41.jpg 300w, /wp-content/uploads/2016/03/table-768x104.jpg 768w, /wp-content/uploads/2016/03/table-512x69.jpg 512w" sizes="(max-width: 968px) 100vw, 968px" /></div>
+		</figure>
+	</div>
+</div></div></div></div></div></div></div></div></div></div></div><div class="section section-single section-inside  behavior-static" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div></div><div class="section section-single section-inside vc_row_7f7a13f5 behavior-static background-light" data-scroll-bg="#ffffff" data-scroll-child-target=">.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu"><div class="section-background section-background-main"></div><div class="container"><div class="section-content"><div class="vc_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="om_gallery_aebab4bc">
+    <div class="grid grid-gallery" data-om-grid="" data-image-cover="" data-om-photoswipe="">
+        <div class="grid-sizer clearfix col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-24 row-sm-12 row-md-12 row-lg-12">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/8-1-1-e1460019152643.jpg" data-size="1000x1429" data-title="8-1">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/8-1-1-1024x1463.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/8-1-1-1412x2017.jpg 1412w" src="/wp-content/uploads/2016/03/8-1-1-1024x1463.jpg" alt="8-1"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-24 row-sm-12 row-md-12 row-lg-12">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/8-2-1-e1460019149545.jpg" data-size="1000x1428" data-title="8-2">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/8-2-1-1024x1463.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/8-2-1-1412x2017.jpg 1412w" src="/wp-content/uploads/2016/03/8-2-1-1024x1463.jpg" alt="8-2"/>                                            </a>
+
+                                    </div>
+            </article>
+            </div>
+</div><div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+<div class="vc_empty_space"  style="height: 10px" ><span class="vc_empty_space_inner"></span></div>
+
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_appear">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<a data-photoswipe-group="group-1" data-item="http://vincentproject.net/wp-content/uploads/2016/03/9-1-e1460018529812.jpg" data-size="1000x1562" data-title="9" rel="prettyPhoto[rel-2875-693364018]" href="/wp-content/uploads/2016/03/9-1-655x1024.jpg" target="_self" class="vc_single_image-wrapper   vc_box_border_grey" data-gallery><img width="1000" height="1562" src="/wp-content/uploads/2016/03/9-1-e1460018529812.jpg" class="vc_single_image-img attachment-full" alt="" /></a>
+		</figure>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_appear">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<a data-photoswipe-group="group-1" data-item="http://vincentproject.net/wp-content/uploads/2016/03/10-1-e1460018519573.jpg" data-size="1000x782" data-title="10" rel="prettyPhoto[rel-2875-970704450]" href="/wp-content/uploads/2016/03/10-1-1024x801.jpg" target="_self" class="vc_single_image-wrapper   vc_box_border_grey" data-gallery><img width="1000" height="782" src="/wp-content/uploads/2016/03/10-1-e1460018519573.jpg" class="vc_single_image-img attachment-full" alt="" /></a>
+		</figure>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_appear">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<a data-photoswipe-group="group-1" data-item="http://vincentproject.net/wp-content/uploads/2016/03/11-1-e1460018511190.jpg" data-size="1000x1500" data-title="11" rel="prettyPhoto[rel-2875-629980338]" href="/wp-content/uploads/2016/03/11-1-683x1024.jpg" target="_self" class="vc_single_image-wrapper   vc_box_border_grey" data-gallery><img width="1000" height="1500" src="/wp-content/uploads/2016/03/11-1-e1460018511190.jpg" class="vc_single_image-img attachment-full" alt="" /></a>
+		</figure>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+
+	<div class="wpb_single_image wpb_content_element vc_align_center  wpb_animate_when_almost_visible wpb_appear">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<a data-photoswipe-group="group-1" data-item="http://vincentproject.net/wp-content/uploads/2016/03/12-1-e1460018499523.jpg" data-size="1000x1000" data-title="12" rel="prettyPhoto[rel-2875-1975995017]" href="/wp-content/uploads/2016/03/12-1-1024x1024.jpg" target="_self" class="vc_single_image-wrapper   vc_box_border_grey" data-gallery><img width="1000" height="1000" src="/wp-content/uploads/2016/03/12-1-e1460018499523.jpg" class="vc_single_image-img attachment-full" alt="" /></a>
+		</figure>
+	</div>
+<div class="vc_empty_space"  style="height: 20px" ><span class="vc_empty_space_inner"></span></div>
+
+<div class="om_gallery_250419a6">
+    <div class="grid grid-gallery" data-om-grid="" data-image-cover="" data-om-photoswipe="">
+        <div class="grid-sizer clearfix col-xs-12 col-sm-6 col-md-6 col-lg-6"></div>
+
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/13-1-1-e1460019147449.jpg" data-size="1000x1000" data-title="13-1">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/13-1-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/13-1-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/13-1-1-1024x1024.jpg" alt="13-1"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/13-2-1-e1460019146114.jpg" data-size="1000x1000" data-title="13-2">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/13-2-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/13-2-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/13-2-1-1024x1024.jpg" alt="13-2"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/13-3-1-e1460019144983.jpg" data-size="1000x1000" data-title="13-3">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/13-3-1-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/13-3-1-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/13-3-1-1024x1024.jpg" alt="13-3"/>                                            </a>
+
+                                    </div>
+            </article>
+                    
+            <article class="grid-item col-xs-12 col-sm-6 col-md-6 col-lg-6 row-xs-12 row-sm-6 row-md-6 row-lg-6">
+                <div
+                    class="grid-cell grid-cell-full">
+                    
+                    <a class="grid-content" data-item="http://vincentproject.net/wp-content/uploads/2016/03/13-4-e1460019129947.jpg" data-size="1000x1000" data-title="13-4">
+                        <img class="img-cover lazyload" data-sizes="auto" data-srcset="http://vincentproject.net/wp-content/uploads/2016/03/13-4-1024x1024.jpg 1024w,http://vincentproject.net/wp-content/uploads/2016/03/13-4-1412x1412.jpg 1412w" src="/wp-content/uploads/2016/03/13-4-1024x1024.jpg" alt="13-4"/>                                            </a>
+
+                                    </div>
+            </article>
+            </div>
+</div></div></div></div></div></div></div></div>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-official sd-sharing"><h3 class="sd-title">이 제품이 맘에 든다면 공유를 부탁해요 🙂</h3><div class="sd-content"><ul><li><a href="#" class="sharing-anchor sd-button share-more"><span>Share</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-pinterest"><div class="pinterest_button"><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fvincentproject.net%2Fprojects%2Fdumpling-2%2F&#038;media=http%3A%2F%2Fvincentproject.net%2Fwp-content%2Fuploads%2F2016%2F03%2FKakaoTalk_20160321_105605150-1412x1412.jpg&#038;description=Dumpling" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a></div></li><li class="share-twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://vincentproject.net/projects/dumpling-2/" data-text="Dumpling"  >Tweet</a></li><li class="share-end"></li><li class="share-facebook"><div class="fb-share-button" data-href="http://vincentproject.net/projects/dumpling-2/" data-layout="button_count"></div></li><li class="share-google-plus-1"><div class="googleplus1_button"><div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://vincentproject.net/projects/dumpling-2/"></div></div></li><li class="share-end"></li><li class="share-end"></li></ul></div></div></div></div></div>                    </div>
+
+        
+        
+        
+                <nav class="container" data-scroll-bg="#ffffff" data-scroll-child-target="&gt;.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu">
+            <ul class="pager">
+                                <li class="previous"><a href="/projects/tree-lamp/" rel="prev"><span class="arrow-left" aria-hidden="true"></span> <span class="hidden-xs">Tree Lamp</span></a></li>                <li class="next"><a href="/projects/atelier-moden-pallet-project-2/" rel="next"><span class="hidden-xs">Atelier MODEN Pallet Project</span> <span class="arrow-right" aria-hidden="true"></span></a></li>            </ul>
+        </nav>
+    </article>
+</div>
+
+
+    
+
+<footer class="content-info" role="contentinfo">
+    
+            
+                <div class="content-info-section content-info-primary" data-scroll-bg="#ffffff" data-scroll-child-target="&gt;.section-background-main" data-scroll-hook="0" data-scroll-offset="height" data-scroll-target=".navmenu-header-overlay,.navmenu-nav .nav-background-overlay,.navmenu-nav .dropdown-menu">
+            <div class="container">
+                <div
+                    class="content-info-content content-info-center">
+                    <div class="row"><div class="col-sm-12"><section class="widget social-icons-widget-5 widget_social-icons-widget"><h3 class="widgettitle">Follow us</h3><ul class="social-icons"><li><a target="_blank" href="https://www.instagram.com/vincent.project/"><span class="icon ion-social-instagram"></span></a></li></section></ul></div></div>                </div>
+            </div>
+        </div>
+
+                
+    </footer>
+
+
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+<div id="blueimp-gallery-fullscreen" class="blueimp-gallery" data-full-screen="true">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+	<div style="display:none">
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/vincentproject.net\/projects\/dumpling-2\/":2875};
+	</script>
+					<script type="text/javascript">
+				// Pinterest shared resources
+				var s = document.createElement("script");
+				s.type = "text/javascript";
+				s.async = true;
+				s.setAttribute('data-pin-hover', true);				s.src = window.location.protocol + "//assets.pinterest.com/js/pinit.js";
+				var x = document.getElementsByTagName("script")[0];
+				x.parentNode.insertBefore(s, x);
+				// if 'Pin it' button has 'counts' make container wider
+				jQuery(window).load( function(){ jQuery( 'li.share-pinterest a span:visible' ).closest( '.share-pinterest' ).width( '80px' ); } );
+			</script>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+		<div id="fb-root"></div>
+			<script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=249643311490&version=v2.3'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+			<script>
+			jQuery( document.body ).on( 'post-load', function() {
+				if ( 'undefined' !== typeof FB ) {
+					FB.XFBML.parse();
+				}
+			} );
+			</script>
+						<script>
+			function renderGooglePlus1() {
+				if ( 'undefined' === typeof gapi ) {
+					return;
+				}
+
+				jQuery( '.g-plus' ).each(function() {
+					var $button = jQuery( this );
+
+					if ( ! $button.data( 'gplus-rendered' ) ) {
+						gapi.plusone.render( this, {
+							href: $button.attr( 'data-href' ),
+							size: $button.attr( 'data-size' ),
+							annotation: $button.attr( 'data-annotation' )
+						});
+
+						$button.data( 'gplus-rendered', true );
+					}
+				});
+			}
+
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				po.innerHTML = '{"parsetags": "explicit"}';
+				po.onload = renderGooglePlus1;
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+
+			jQuery( document.body ).on( 'post-load', renderGooglePlus1 );
+			</script>
+			<link rel='stylesheet' id='prettyphoto-css'  href='/wp-content/plugins/js_composer/assets/lib/prettyphoto/css/prettyPhoto.min.css?ver=4.9.2' type='text/css' media='all' />
+<script type='text/javascript' src='/wp-content/themes/colors-creative/assets/js/scripts.min.js?ver=1.4.6'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-indicator.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-fullscreen.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-video.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-vimeo.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/blueimp-gallery-youtube.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/blueimp-lightbox/js/jquery.blueimp-gallery.js?ver=1.0.0'></script>
+<script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/vincentproject.net\/wp-content\/themes\/colors-creative\/assets\/img\/three-dots.svg","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.3.1'></script>
+<script type='text/javascript' src='/wp-content/plugins/bootstrap-for-contact-form-7/assets/scripts.min.js?ver=1.3.0'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2018Febaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.9.4'></script>
+<script type='text/javascript' src='/wp-includes/js/comment-reply.js?ver=4.9.4'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201807'></script>
+<script type='text/javascript' src='/wp-content/themes/colors-creative-child-extended/assets/js/custom.js?ver=1.4.6'></script>
+<script type='text/javascript' src='/wp-includes/js/wp-embed.js?ver=4.9.4'></script>
+<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.9.2'></script>
+<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/prettyphoto/js/jquery.prettyPhoto.min.js?ver=4.9.2'></script>
+<script type='text/javascript' src='/wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.min.js?ver=4.9.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/jetpack/modules/sharedaddy/sharing.js?ver=3.9.7'></script>
+</body>
+</html>

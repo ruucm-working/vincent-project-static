@@ -1,4 +1,4 @@
-@font-face{
+/*@font-face{
   font-family: 'BMDOHYEON';
   font-style: normal;
   font-weight: normal;
@@ -29,7 +29,7 @@
   src: url('/wp-content/themes/colors-creative/assets/fonts/notokr-regular.eot'); 
   src: local('☺'), url('/wp-content/themes/colors-creative/assets/fonts/notokr-regular.woff') format('woff'), url('/wp-content/themes/colors-creative/assets/fonts/notokr-regular.ttf') format('truetype');
 }
-
+*/
 
 .form-control,.form-control:focus,.pswp__button
 {
